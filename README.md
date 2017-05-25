@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# codaisseurify
+About songs and artists, and artists and songs.
+>>>>>>> 2c15c0c3bb3b56ed24d4d2c3245992bd04959b71

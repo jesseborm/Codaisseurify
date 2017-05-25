@@ -1,7 +1,25 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Song.delete_all
+Artist.delete_all
+
+song1 = Song.create( { title: "Divenire", year: "2006", album: "Divenire" } )
+song2 = Song.create( { title: "Fly", year: "2006", album: "Divenire" } )
+song3 = Song.create( { title: "The Earth Prelude", year: "2000", album: "Islands" } )
+song4 = Song.create( { title: "In the Jailhouse Now", year: "2000", album: "O Brother, Where Art Thou?" } )
+song5 = Song.create( { title: "Man of Constant Sorrow", year: "2000", album: "O Brother, Where Art Thou?" } )
+song6 = Song.create( { title: "A Head Full of Dreams", year: "2015", album: "A Head Full of Dreams" } )
+song7 = Song.create( { title: "Hymn For the Weekend", year: "2015", album: "A Head Full of Dreams" } )
+song8 = Song.create( { title: "Adventure Of a Lifetime", year: "2015", album: "A Head Full of Dreams" } )
+
+artist1 = Artist.create(name: "Ludovico Einaudi", image: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485012037/lud-einaudi_e44rex.jpg")
+artist2 = Artist.create(name: "The Soggy Bottom Boys", image: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485012411/o-brother-where-art-thou-2000-soggy-bottom-boys-george-clooney-tim-blake-nelson-john-turturro-chris-thomas-king-bw_nk1bho.jpg")
+artist3 = Artist.create(name: "Coldplay", image: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485011868/Screen-Shot-2014-03-20-at-10.23.34-AM_szugaa.jpg")
+
+
+artist1.songs << [song1, song2, song3]
+artist1.save
+
+artist2.songs << [song4, song5]
+artist2.save
+
+artist3.songs << [song6, song7, song8]
+artist3.save
