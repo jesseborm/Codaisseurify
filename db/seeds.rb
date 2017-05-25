@@ -10,16 +10,6 @@ song6 = Song.create( { title: "A Head Full of Dreams", year: "2015", album: "A H
 song7 = Song.create( { title: "Hymn For the Weekend", year: "2015", album: "A Head Full of Dreams" } )
 song8 = Song.create( { title: "Adventure Of a Lifetime", year: "2015", album: "A Head Full of Dreams" } )
 
-artist1 = Artist.create(name: "Ludovico Einaudi", image: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485012037/lud-einaudi_e44rex.jpg")
-artist2 = Artist.create(name: "The Soggy Bottom Boys", image: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485012411/o-brother-where-art-thou-2000-soggy-bottom-boys-george-clooney-tim-blake-nelson-john-turturro-chris-thomas-king-bw_nk1bho.jpg")
-artist3 = Artist.create(name: "Coldplay", image: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485011868/Screen-Shot-2014-03-20-at-10.23.34-AM_szugaa.jpg")
-
-
-artist1.songs << [song1, song2, song3]
-artist1.save
-
-artist2.songs << [song4, song5]
-artist2.save
-
-artist3.songs << [song6, song7, song8]
-artist3.save
+artist1 = Artist.create(name: "Ludovico Einaudi", quality: 9, songs: [song1, song2, song3])#, image: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485012037/lud-einaudi_e44rex.jpg")
+artist2 = Artist.create(name: "The Soggy Bottom Boys", quality: 9, songs: [song4, song5]) #, image: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485012411/o-brother-where-art-thou-2000-soggy-bottom-boys-george-clooney-tim-blake-nelson-john-turturro-chris-thomas-king-bw_nk1bho.jpg")
+artist3 = Artist.create(name: "Coldplay", quality: 7, songs: [song6, song7, song8])#, image: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485011868/Screen-Shot-2014-03-20-at-10.23.34-AM_szugaa.jpg")
