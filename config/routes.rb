@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :artists do
     resources :songs, only: [:new, :edit, :create, :update, :destroy]
   end
+  # resources :songs
 end
