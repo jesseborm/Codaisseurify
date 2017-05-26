@@ -6,7 +6,8 @@ class SongsController < ApplicationController
   end
 
   def new
-    @song = Song.new
+    @song = Song.artist.new
+    # @song = Artist.song.new
   end
 
   def edit
