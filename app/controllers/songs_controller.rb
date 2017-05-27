@@ -1,12 +1,15 @@
 class SongsController < ApplicationController
-  before_action :set_songs, only: [:edit, :update, :destroy]
+  before_action :set_song, only: [:edit, :update]#, :destroy]
 
   def index
-    @songs = Artist.songs
   end
 
   def new
+    @artist = Artist.find(params[:artist_id])
     @song = Song.new
+    # Line 11 works but not without the @artist params on line 10
+    # @song = Song.new(artist_id: params[:artist_id])
+    # @song = Song.new(song_params(artist_id: params[:artist_id]))
   end
 
   def edit
@@ -20,15 +23,29 @@ class SongsController < ApplicationController
     end
   end
 
-  def create
-    @song = Artist.songs.build(song_params) #build????
+  # def create
+  #   @song = Artist.songs.build(song_params) #build????
+  #
+  #   if @song.save
+  #     redirect_to @song, notice: "Song successfully created"
+  #   else
+  #     render :new
+  #   end
+  # end
 
-    if @song.save
-      redirect_to @song, notice: "Song successfully created"
-    else
-      render :new
-    end
+  def create
+    # @artist = Artist.find(params[:artist_id])
+    # @song = @artist.songs.create(song_params)
+    @song = Song.create(song_params.merge(artist_id: params[:artist_id]))
+
+    # redirect_to artist_path(@song.artist),
+    redirect_to @song.artist,
+    # notice can go, because you can see if it was successful, but still want to try out where it shows and how to implement it.
+    notice: "Song successfully added to " + @song.artist.name + "!"
   end
+
+
+
 
   def destroy
 
@@ -37,11 +54,11 @@ class SongsController < ApplicationController
 
   private
 
-  def set_songs
-    @song = Artist.song.find(params[:id])
+  def set_song
+    @song = Song.find(params[:id])
   end
 
-  def songs_params
-    params.require(:songs).permit(:title, :album, :year, :artist_id)
+  def song_params
+    params.require(:song).permit(:title, :album, :year, :artist_id)
   end
 end

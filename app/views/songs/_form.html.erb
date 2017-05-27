@@ -1,14 +1,16 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center">
 
-    <!-- Error messages, Where is the notice inserted???? FIXME-->
-      <% @song.errors.full_messages.each do |msg| %>
-      <p class="alert alert-danger"><%= msg %></p>
-    <% end %>
 
-    <h2>Add new song for <%=  @artist.name %> </h2>
+  <!-- Error messages -->
+    <% @song.errors.full_messages.each do |msg| %>
+    <p class="alert alert-danger"><%= msg %></p>
+  <% end %>
+
+    <h2>Add new song for <%=  @artist %> </h2>
   <!-- TRY out form new registrations form -->
-    <%= form_for [@artist, @song] do |f| %>
+  <% debugger %>
+    <%= form_for [@artist,@artist.songs.new] do |f| %>
 
       <div class="form-group">
         <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
@@ -21,6 +23,7 @@
       <div class="form-group">
         Year of release:
         <%= f.date_select :year, {:start_year => Time.now.year, :end_year => Time.now.year - 95, :discard_day => true, :discard_month => true} %>
+
       </div>
 
       <div class="actions">
@@ -28,9 +31,3 @@
       </div>
 
     <% end %>
-
-
-    <hr>
-    <%= link_to "Back", artists_path %>
-  </div>
-</div>
