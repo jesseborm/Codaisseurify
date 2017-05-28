@@ -1,5 +1,6 @@
 class Artist < ApplicationRecord
-  # If I use nested routing, can I ommit dependent: :destroy?
   has_many :songs, dependent: :destroy
-  # has_one :photo
+
+  validates :name, presence: true, uniqueness: true
+  # validates :image, length: { maximum: 255 }, allow_blank: true
 end
