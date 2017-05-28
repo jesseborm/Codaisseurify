@@ -44,10 +44,12 @@ class SongsController < ApplicationController
     notice: "Song successfully added to " + @song.artist.name + "!"
   end
 
-
-
-
   def destroy
+    @song = Song.find(params[:id])
+    # @artist = Artist.find(params[:artist_id])
+    # @song = Song.find(params[:id].merge(artist_id: params[:artist_id]))
+    @song = Artist.song.find(params[:id])
+    @song.destroy
 
     redirect_back(fallback_location: root_path)
   end

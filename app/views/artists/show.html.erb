@@ -1,21 +1,28 @@
-
-
-<h3> <%= @artist.name %> </h3>
-<hr>
-
-<ul>
-  <% @artist.songs.each do |song| %>
-    <li> <%= song.title %> </li>
-  <% end %>
-</ul>
-
-<br>
-<hr>
-<br>
-<%= link_to "New Song", new_artist_song_path(@artist) %>
-<br>
-<%= link_to "Back", artists_path %>
-
-<br><br>
-<hr><hr>
-<br>
+<div class="row">
+  <div class="col-md-10">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4><%= @artist.name %></h4>
+      </div>
+      <div class="panel-body">
+        <% @artist.songs.each do |song| %>
+        <div class="row">
+          <div class="col-md-9">
+            <h5> <%= song.title %> </h5>
+            <div class="col-md-9 right">
+              <%= link_to "Edit song", edit_artist_song_path(song), class: "btn btn-default" %>
+              <%= link_to "Delete", artist_song_path(song), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+              <%= link_to "View", @song, class: "btn btn-default" %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10">
+  <%= link_to "New Song", new_artist_song_path(@artist), class: "btn btn-primary" %>
+  </div>
+</div>

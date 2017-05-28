@@ -22,12 +22,12 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    @artist = artists.build(artist_params) #build????
+    @artist = Artist.new(artist_params) #build????
 
     if @artist.save
       redirect_to @artist, notice: "Artist successfully created"
     else
-      render :new
+      render new_artist_path
     end
   end
 

@@ -5,6 +5,4 @@ Rails.application.routes.draw do
     resources :songs#, only: [:new, :create]
   end
 
-  # resources :photos
-  # get 'songs/new', to: 'songs#new'
 end
