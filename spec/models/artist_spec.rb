@@ -7,3 +7,7 @@ RSpec.describe Artist, type: :model do
     # it { is_expected.to validate_length_of(:image).is_at_most(254) }
   end
 end
+
+  describe "association with category" do
+    it { is_expected.to have_many :songs }
+  end
