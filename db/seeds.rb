@@ -10,11 +10,14 @@ song6 = Song.create( { title: "A Head Full of Dreams", year: "2015", album: "A H
 song7 = Song.create( { title: "Hymn For the Weekend", year: "2015", album: "A Head Full of Dreams" } )
 song8 = Song.create( { title: "Adventure Of a Lifetime", year: "2015", album: "A Head Full of Dreams" } )
 
-# artist1 = Artist.create(name: "Ludovico Einaudi", quality: 9, songs: [song1, song2, song3], image: "../public/einaudi.jpg")
-# artist2 = Artist.create(name: "The Soggy Bottom Boys", quality: 9, songs: [song4, song5], image: "./app/assets/images/brotherB&W.jpg")
-# artist3 = Artist.create(name: "Coldplay", quality: 7, songs: [song6, song7, song8], image: "../app/assets/images/coldplay.jpg")
 
-# photo for cloudinary:
-artist1 = Artist.create(name: "Ludovico Einaudi", quality: 9, songs: [song1, song2, song3], remote_image_url: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485012037/lud-einaudi_e44rex.jpg")
-artist2 = Artist.create(name: "The Soggy Bottom Boys", quality: 9, songs: [song4, song5], remote_image_url: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485012411/o-brother-where-art-thou-2000-soggy-bottom-boys-george-clooney-tim-blake-nelson-john-turturro-chris-thomas-king-bw_nk1bho.jpg")
-artist3 = Artist.create(name: "Coldplay", quality: 7, songs: [song6, song7, song8], remote_image_url: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485011868/Screen-Shot-2014-03-20-at-10.23.34-AM_szugaa.jpg")
+# Photos:
+photo1 = Photo.create(remote_image_url: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485012037/lud-einaudi_e44rex.jpg")
+photo2 = Photo.create(remote_image_url: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485012411/o-brother-where-art-thou-2000-soggy-bottom-boys-george-clooney-tim-blake-nelson-john-turturro-chris-thomas-king-bw_nk1bho.jpg")
+photo3 = Photo.create(remote_image_url: "http://res.cloudinary.com/dcuuut1py/image/upload/v1485011868/Screen-Shot-2014-03-20-at-10.23.34-AM_szugaa.jpg")
+
+
+# Artists
+artist1 = Artist.create(name: "Ludovico Einaudi", quality: 9, songs: [song1, song2, song3], image: photo1)
+artist2 = Artist.create(name: "The Soggy Bottom Boys", quality: 9, songs: [song4, song5], image: photo2)
+artist3 = Artist.create(name: "Coldplay", quality: 7, songs: [song6, song7, song8], image: photo3)
