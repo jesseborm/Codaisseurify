@@ -1,5 +1,7 @@
 class SongsController < ApplicationController
-  before_action :set_song, only: [:edit, :update]#, :destroy]
+  # from book wintermeyer
+  before_action :set_artist
+  before_action :set_song, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -10,6 +12,8 @@ class SongsController < ApplicationController
     # Line 11 works but not without the @artist params on line 10
     # @song = Song.new(artist_id: params[:artist_id])
     # @song = Song.new(song_params(artist_id: params[:artist_id]))
+    # from book stefan wintermeyer:
+    # @song = @artist.songs.build
   end
 
   def edit
@@ -34,6 +38,9 @@ class SongsController < ApplicationController
   # end
 
   def create
+    # from book
+    # @song = @artist.songs.build(song_params)
+
     # @artist = Artist.find(params[:artist_id])
     # @song = @artist.songs.create(song_params)
     @song = Song.create(song_params.merge(artist_id: params[:artist_id]))

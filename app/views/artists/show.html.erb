@@ -5,6 +5,7 @@
         <h4><%= @artist.name %></h4>
       </div>
       <div class="panel-body">
+        <%= @artist.image %>
         <% @artist.songs.each do |song| %>
         <div class="row">
           <div class="col-md-9">
@@ -26,3 +27,8 @@
   <%= link_to "New Song", new_artist_song_path(@artist), class: "btn btn-primary" %>
   </div>
 </div>
+
+<h4>Photos</h4>
+<% @artist.photos.each do |photo| %>
+  <%= image_tag photo.image %>
+<% end %>
