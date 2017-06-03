@@ -4,4 +4,8 @@ class Artist < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   # validates :image, length: { maximum: 255 }, allow_blank: true
+
+
+  
+
 end

@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :artists do
     resources :songs#, only: [:new, :create]
+    resources :photos
   end
+  resources :photos
 end

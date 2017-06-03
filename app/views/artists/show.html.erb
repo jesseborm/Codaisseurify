@@ -5,16 +5,16 @@
         <h4><%= @artist.name %></h4>
       </div>
       <div class="panel-body">
-        <%= @artist.image %>
+        <%= @artist.image %>   <!-- image in the photo in the artist, nested resoureces?? -->
         <% @artist.songs.each do |song| %>
         <div class="row">
           <div class="col-md-9">
             <h5> <%= song.title %> </h5>
-            <div class="col-md-9 right">
+            <!-- <div class="col-md-9 right"> -->
               <%= link_to "Edit song", edit_artist_song_path(song), class: "btn btn-default" %>
-              <%= link_to "Delete", artist_song_path(song), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+              <%= link_to "Delete", artist_song_path(@artist, song), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
               <%= link_to "View", @song, class: "btn btn-default" %>
-            </div>
+            <!-- </div> -->
           </div>
         </div>
         <% end %>
@@ -22,12 +22,20 @@
     </div>
   </div>
 </div>
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-10">
-  <%= link_to "New Song", new_artist_song_path(@artist), class: "btn btn-primary" %>
-  </div>
-</div>
+  <%#= link_to "New Song", new_artist_song_path(@artist), class: "btn btn-primary" %>
+  </div> -->
+<!-- </div> -->
 
+<h4>New Song</h4>
+<%= render 'songs/new_song' %>
+
+
+
+
+
+<br><br><hr>
 <h4>Photos</h4>
 <% @artist.photos.each do |photo| %>
   <%= image_tag photo.image %>

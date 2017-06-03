@@ -1,0 +1,21 @@
+.navbar {
+  background-color: lightGreen;
+}
+
+.col-md-10 {
+}
+
+.panel-primary {
+  border-color: lighten(lightBlue, 7%);
+  .panel-heading {
+    background-color: lighten(lightBlue, 7%);
+    border-color: lighten(lightBlue, 7%);
+  }
+}
+
+
+
+.btn-primary {
+  background-color: lightGrey;
+  border-color: lighten(lightBlue, 7%);
+}
