@@ -7,7 +7,7 @@
   <!-- Error messages -->
 
     <h2>Add new song for <%=  @artist.name %> </h2>
-    <%= form_for [@artist,@artist.songs.new] do |f| %>
+    <%= form_for [@artist,@artist.songs.new], remote: true do |f| %>
     <%#= form_for [@artist, @song] do |f| %>
 
       <div class="form-group">
@@ -25,7 +25,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Save", class: "btn btn-primary" %>
+        <%= f.submit "Save", remote: true, class: "btn btn-primary" %>
       </div>
 
     <% end %>

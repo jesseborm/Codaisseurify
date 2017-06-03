@@ -1,7 +1,9 @@
 class SongsController < ApplicationController
-  # from book wintermeyer
+  # from book stefan wintermeyer
   before_action :set_artist
   before_action :set_song, only: [:show, :edit, :update, :destroy]
+  respond_to :html
+  respond_to :js
 
   def index
   end
@@ -9,7 +11,7 @@ class SongsController < ApplicationController
   def new
     # artist = Artist.find(params[:artist_id])
     @song = Song.new
-    # from book stefan wintermeyer:
+    # from book wintermeyer:
     # @song = artist.songs.build
   end
 
@@ -21,6 +23,10 @@ class SongsController < ApplicationController
       redirect_to @song.artist, notice: "Song successfully changed"
     else
       render 'edit'
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
@@ -39,11 +45,16 @@ class SongsController < ApplicationController
     # @song = @artist.songs.build(song_params)
 
     @song = Song.create(song_params.merge(artist_id: params[:artist_id]))
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    #
+    # # redirect_to artist_path,
+    # redirect_to @song.artist,
+    # # notice can go, because you can see if it was successful, but still want to try out where it shows and how to implement it.
+    # notice: "Song successfully added to " + @song.artist.name + "!"
 
-    # redirect_to artist_path,
-    redirect_to @song.artist,
-    # notice can go, because you can see if it was successful, but still want to try out where it shows and how to implement it.
-    notice: "Song successfully added to " + @song.artist.name + "!"
   end
 
   def destroy
@@ -51,8 +62,11 @@ class SongsController < ApplicationController
     # @song = Song.find(params[:id].merge(artist_id: params[:artist_id]))
     # @song = @artist.songs.find(params[:id])
     @song.destroy
+    respond_to do |format|
+      format.html
+      format.js
+    end
 
-    redirect_back(fallback_location: root_path)
   end
 
   private
