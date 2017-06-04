@@ -2,8 +2,9 @@ class SongsController < ApplicationController
   # from book stefan wintermeyer
   before_action :set_artist
   before_action :set_song, only: [:show, :edit, :update, :destroy]
-  respond_to :html
-  respond_to :js
+  # Why can't these be here?
+  # respond_to :html
+  # respond_to :js
 
   def index
   end
@@ -11,7 +12,7 @@ class SongsController < ApplicationController
   def new
     # artist = Artist.find(params[:artist_id])
     @song = Song.new
-    # from book wintermeyer:
+    # from book  wintermeyer:
     # @song = artist.songs.build
   end
 
@@ -24,49 +25,31 @@ class SongsController < ApplicationController
     else
       render 'edit'
     end
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
-  # def create
-  #   @song = Artist.songs.build(song_params) #build????
-  #
-  #   if @song.save
-  #     redirect_to @song, notice: "Song successfully created"
-  #   else
-  #     render :new
-  #   end
-  # end
-
   def create
-    # from book
+  #   # from book
     # @song = @artist.songs.build(song_params)
-
+    # @song.save
     @song = Song.create(song_params.merge(artist_id: params[:artist_id]))
     respond_to do |format|
       format.html
       format.js
     end
-    #
-    # # redirect_to artist_path,
-    # redirect_to @song.artist,
-    # # notice can go, because you can see if it was successful, but still want to try out where it shows and how to implement it.
-    # notice: "Song successfully added to " + @song.artist.name + "!"
-
+    # redirect_to artist_path(@artist)
+    # redirect_to @song.artist
+  #   # notice can go, because you can see if it was successful, but still want to try out where it shows and how to implement it.
+  #   , notice: "Song successfully added to " + @song.artist.name + "!"
   end
 
   def destroy
-    # @artist = Artist.find(params[:artist_id])
-    # @song = Song.find(params[:id].merge(artist_id: params[:artist_id]))
-    # @song = @artist.songs.find(params[:id])
     @song.destroy
+    # Is the respond_to block optional when using partials and remote: true??
     respond_to do |format|
       format.html
       format.js
     end
-
+    # redirect_back(fallback_location: root_path)
   end
 
   private

@@ -1,16 +1,14 @@
+<!-- In songs view -->
+
 <div class="row">
-  <div class="col-md-6 col-md-offset-3 text-center">
+  <div class="col-md-6 text-left">
 
 
   <!-- Error messages -->
-    <% @artist.songs.errors.full_messages.each do |msg| %>
-    <p class="alert alert-danger"><%= msg %></p>
-  <% end %>
 
-    <h2>Add new song for <%=  @artist %> </h2>
-  <!-- TRY out form new registrations form -->
-    <%= form_for [@artist,@artist.songs.new] do |f| %>
-    <%#= form_for [@artist,@song] do |f| %>
+    <h2>Add new song for <%=  @artist.name %> </h2>
+    <%= form_for [@artist,@artist.songs.new], remote: true do |f| %>
+    <%#= form_for [@artist, @song] do |f| %>
 
       <div class="form-group">
         <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
@@ -27,7 +25,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Save", class: "btn btn-primary" %>
+        <%= f.submit "Save", remote: true, class: "btn btn-primary" %>
       </div>
 
     <% end %>
