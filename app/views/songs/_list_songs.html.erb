@@ -1,0 +1,14 @@
+<% @artist.songs.each do |song| %>
+<div class="row">
+  <div class="col-md-9">
+    <h5> <%= song.title %> </h5>
+      <%= link_to "Edit song", edit_artist_song_path(@artist, song), remote: true, class: "btn btn-default" %>
+      <%= link_to "Delete", artist_song_path(@artist, song), remote: true, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+      <%= link_to "View", artist_song_path(@artist, song), class: "btn btn-default" %>
+  </div>
+</div>
+<% end %>
+<hr>
+  <!-- artist_path(@artist), method: :delete, remote: true,  -->
+  <%= link_to "Delete all songs", '#',
+  data: { confirm: "Are you sure you want to delete all songs?" }, class: "btn btn-default" %>
