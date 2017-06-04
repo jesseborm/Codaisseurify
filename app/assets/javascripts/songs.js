@@ -7,7 +7,7 @@ $(document).ready(function() {
   $(".delete-all-songs").bind('click', removeAllSongs);
 });
 
-
+// probably better if I remove this function alltogether and only declare some variables.
 function removeAllSongs(event) {
   event.preventDefault();
 
