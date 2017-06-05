@@ -11,6 +11,6 @@
 </div>
 <% end %>
 <hr>
-<a href="#" id="delete-all-songs" class="btn btn-default">Delete all songs</a>
+<!-- <a href="#" id="delete-all-songs" class="btn btn-default">Delete all songs</a> -->
 
-<%#= link_to "Delete all songs", artist_song_path(@artist, @artist.songs), method: :delete, remote: true, data: { confirm: "Are you sure you want to delete all songs?" }, class: "delete-all-songs", class: "btn btn-default" %>
+<%= link_to "Delete all songs", "#", remote: true, data: { confirm: "I couldn't get this working unfortunately :(" }, class: "delete-all-songs", class: "btn btn-default" %>

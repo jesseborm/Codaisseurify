@@ -17,22 +17,22 @@
 <div class="row">
   <div class="col-md-10">
     <div class="new_artist_song_path">
-      <%= link_to "New Song", new_artist_song_path(@artist), remote: true, class: "btn btn-primary" %>
+      <%#= link_to "New Song", new_artist_song_path(@artist), remote: true, class: "new-songsss", class: "btn btn-primary" %>
     </div>
   </div>
 </div>
 
-<h4>New Song</h4>
+<!-- <h4>New Song</h4> -->
 <!-- <div id="new-song-form" style="display:none;"></div> -->
-<hr><hr>
+<!-- <hr><hr> -->
 <div id="aanew-song-form">
   <%= render 'songs/new_song' %>
 </div>
 
 
 
-<br><br><hr>
-<h4>Photos</h4>
-<% @artist.photos.each do |photo| %>
-  <%= image_tag photo.image %>
-<% end %>
+<!-- <br><br><hr>
+<h4>Photos</h4> -->
+<%# @artist.photos.each do |photo| %>
+  <%#= image_tag photo.image %>
+<%# end %>
