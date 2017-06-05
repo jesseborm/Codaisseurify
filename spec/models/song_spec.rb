@@ -6,9 +6,10 @@ RSpec.describe Song, type: :model do
     # it { is_expected.to validate_numericality_of(:year) }
     # it { is_expected.to validate_length_of(:year).is_at_most(5) }
   end
-end
 
 
   describe "association with user" do
       it { is_expected.to belong_to :artist }
     end
+
+  end

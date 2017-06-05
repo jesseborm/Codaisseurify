@@ -33,10 +33,10 @@ class SongsController < ApplicationController
     # @song.save
     @song = Song.create(song_params.merge(artist_id: params[:artist_id]))
     respond_to do |format|
-      format.html
+      format.html { redirect_to artist_path(@artist) }
       format.js
     end
-    # redirect_to artist_path(@artist)
+
     # redirect_to @song.artist
   #   # notice can go, because you can see if it was successful, but still want to try out where it shows and how to implement it.
   #   , notice: "Song successfully added to " + @song.artist.name + "!"
@@ -46,7 +46,7 @@ class SongsController < ApplicationController
     @song.destroy
     # Is the respond_to block optional when using partials and remote: true??
     respond_to do |format|
-      format.html
+      format.html { redirect_to artist_path(@artist) }
       format.js
     end
     # redirect_back(fallback_location: root_path)
