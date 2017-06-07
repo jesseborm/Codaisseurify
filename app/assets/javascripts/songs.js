@@ -11,13 +11,14 @@ $(document).ready(function() {
 function removeAllSongs(event) {
   event.preventDefault();
 
-  var divRow = this;
-  var songId = divRow.data('id');
+// $(this).attr('data-id')
 
+// Have to loop over id cause otherwise deletesong doesn't know which song to delete. 
   $.each($(".song-line"), function() {
-    $divRow = $(divRow);
+    var songId = attr('data-id');
+    // $divRow = $(divRow);
     // divRow = $(divRow);
-    songId = $(divRow).data('id');
+    // songId = $(divRow).data('id');
     deleteSong(songId);
   });
 }
