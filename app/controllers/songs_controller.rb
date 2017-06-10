@@ -34,7 +34,7 @@ class SongsController < ApplicationController
     @song = Song.create(song_params.merge(artist_id: params[:artist_id]))
     respond_to do |format|
       format.html { redirect_to artist_path(@artist) }
-      format.js
+      format.json
     end
 
     # redirect_to @song.artist
@@ -47,7 +47,7 @@ class SongsController < ApplicationController
     # Is the respond_to block optional when using partials and remote: true??
     respond_to do |format|
       format.html { redirect_to artist_path(@artist) }
-      format.js
+      format.json
     end
     # redirect_back(fallback_location: root_path)
   end
