@@ -3,6 +3,7 @@
 
 $(document).ready(function() {
   $('.new-song-btn').on('click', showNewSongForm);
+  // $('')
   // $("input[type=checkbox]").bind('change', toggleDone);
   // $("form").bind('submit', submitTodo);
   // $(".delete-all-songs").bind('click', removeAllSongs);
@@ -10,11 +11,11 @@ $(document).ready(function() {
   //   event.preventDefault();
 
 
-    $('#new-song-form').slideUp(350);
+    // $('#new-song-form').slideUp(350);
 
-    $('input[id=song.title]').val(null);
-    $('input[id=song.album]').val(null);
-    $('select[id=song_year]').val(null);
+    // $('input[id=song.title]').val(null);
+    // $('input[id=song.album]').val(null);
+    // $('select[id=song_year]').val(null);
   // })
 });
 
@@ -24,36 +25,49 @@ function showNewSongForm() {
   // $('.new-song-btn').slideUp(350);
 }
 
+// function createSong() {
+//
+//   var newSong = { title: title, year: year, album: album, artist_id: artist_id }
+//
+//   $.ajax({
+//     type: "POST",
+//     url: "/songs/create",
+//     data: JSON.stringify({ song: newSong }),
+//     contentType: "application/json",
+//     dataType: "json"
+//   });
+// }
+
 
 
 // probably better if I remove this function alltogether and only declare some variables.
-function removeAllSongs(event) {
-  event.preventDefault();
+// function removeAllSongs(event) {
+//   event.preventDefault();
 
 // $(this).attr('data-id')
 
-// Have to loop over id cause otherwise deletesong doesn't know which song to delete.
-  $.each($(".song-line"), function() {
-    var songId = attr('data-id');
-    // $divRow = $(divRow);
-    // divRow = $(divRow);
-    // songId = $(divRow).data('id');
-    deleteSong(songId);
-  });
-}
-
-function deleteSong(songId) {
-  $.ajax({
-    type: "DELETE",
-    url: "/song/" + songId + ".json",
-    contentType: "application/json",
-    dataType: "json"})
-
-    .done(function(data) {
-      $('div[data-id="'+songId+'"]').remove();
-      // updateCounters();
-    });
-}
+// // Have to loop over id cause otherwise deletesong doesn't know which song to delete.
+//   $.each($(".song-line"), function() {
+//     var songId = attr('data-id');
+//     // $divRow = $(divRow);
+//     // divRow = $(divRow);
+//     // songId = $(divRow).data('id');
+//     deleteSong(songId);
+//   });
+// }
+//
+// function deleteSong(songId) {
+//   $.ajax({
+//     type: "DELETE",
+//     url: "/song/" + songId + ".json",
+//     contentType: "application/json",
+//     dataType: "json"})
+//
+//     .done(function(data) {
+//       $('div[data-id="'+songId+'"]').remove();
+//       // updateCounters();
+//     });
+// }
 
 
 // Call this in partial files
