@@ -3,15 +3,16 @@
 
 $(document).ready(function() {
   $('.new-song-btn').on('click', showNewSongForm);
+  // $('.submit-new-song').bind('submit', createSong);
+  $('.submit-new-song').on('click', createSong);
   // $('')
   // $("input[type=checkbox]").bind('change', toggleDone);
-  // $("form").bind('submit', submitTodo);
   // $(".delete-all-songs").bind('click', removeAllSongs);
   // $('#new-song-form').on('click', function(event) {
   //   event.preventDefault();
 
 
-    // $('#new-song-form').slideUp(350);
+    $('#new-song-form').slideUp(350);
 
     // $('input[id=song.title]').val(null);
     // $('input[id=song.album]').val(null);
@@ -25,18 +26,29 @@ function showNewSongForm() {
   // $('.new-song-btn').slideUp(350);
 }
 
-// function createSong() {
-//
-//   var newSong = { title: title, year: year, album: album, artist_id: artist_id }
-//
-//   $.ajax({
-//     type: "POST",
-//     url: "/songs/create",
-//     data: JSON.stringify({ song: newSong }),
-//     contentType: "application/json",
-//     dataType: "json"
-//   });
-// }
+function createSong(event) {
+  event.preventDefault();
+
+  var title = $('input[name="song[title]"]').val();
+  var album = $('input[name="song[album]"]').val();
+  var year = $('select[name="song[year(1i)]"]').val();
+  var url = $('input[name="song[title]"]').parent().parent().attr('action');
+  var newSong = { title: title, year: year, album: album }
+  // , artist_id: artist_id
+
+  // debugger;
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: JSON.stringify({ song: newSong }),
+    contentType: "application/json",
+    dataType: "json"
+  })
+  .done(function(data) {
+    // debugger;
+
+  })
+}
 
 
 
