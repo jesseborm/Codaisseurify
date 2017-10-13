@@ -17,17 +17,16 @@
 <div class="row">
   <div class="col-md-10">
     <div class="new_artist_song_path">
-      <%#= link_to "New Song", new_artist_song_path(@artist), remote: true, class: "new-songsss", class: "btn btn-primary" %>
+
+      <%= link_to "New Song", "#", class: "btn btn-primary new-song-btn" %>
     </div>
   </div>
 </div>
 
-<!-- <h4>New Song</h4> -->
-<!-- <div id="new-song-form" style="display:none;"></div> -->
-<!-- <hr><hr> -->
-<div id="aanew-song-form">
+<div id="new-song-form" style="display:none;">
   <%= render 'songs/new_song' %>
 </div>
+
 
 
 
